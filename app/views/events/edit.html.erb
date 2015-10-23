@@ -1,0 +1,28 @@
+<% if flash[:event_errors] %>
+<% flash[:event_errors].each do |msg| %>
+<div class="alert alert-danger" role="alert">
+  <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+  <span class="sr-only">Error:</span>
+  <%= msg %>
+</div>
+<% end %>
+<% end %>
+
+<h1>Edit Your Event</h1>
+<form action="/events/<%= @event.id %>" method="post">
+	<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+	<input type="hidden" name="_method" value="patch">
+	<label for="name">Name: </label>
+	<input type="text" name="events[name]" value="<%= @event.name %>" class="form-control">
+	<label for="name">Date: </label>
+	<input type="date" name="events[date]" value='<%= @event.date.strftime("%Y-%_m-%-d") %>' class="form-control">
+	<label for="location">Location</label>
+	<input type="text" name="events[location]" value="<%= @event.location %>" class="form-control">
+	<label for="location">State</label>
+	<select name="events[state]" id="state" class="form-control" value="<%= @event.state %>">
+		<option value="CA">CA</option>
+		<option value="WA">WA</option>
+		<option value="NY">NY</option>
+	</select>
+	<button class="btn btn-success form-control">Update Event</button>
+</form>

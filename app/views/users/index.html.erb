@@ -1,0 +1,51 @@
+<h1>Welcome! </h1>
+<div class="row">
+	<div class="col-xs-6">
+		<div class="panel panel-success">
+			<div class="panel-heading">
+				<h3 class="panel-title">Register</h3>
+			</div>
+			<div class="panel-body">
+				<form action="/users" method="post">
+					<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+					<label for="first_name">First Name: </label>
+					<input type="text" name="users[first_name]" class="form-control" id="first_name">
+					<label for="last_name">Last Name: </label>
+					<input type="text" name="users[last_name]" class="form-control" id="last_name">
+					<label for="email">Email</label>
+					<input type="text" name="users[email]" class="form-control" id="email">
+					<label for="city">City</label>
+					<input type="text" name="users[city]" class="form-control" id="city">
+					<label for="state">State</label>
+					<select name="users[state]" id="state" class="form-control">
+						<option value="CA">CA</option>
+						<option value="WA">WA</option>
+						<option value="NY">NY</option>
+					</select>
+					<label for="password">Password</label>
+					<input type="password" name="users[password]" class="form-control" id="password">
+					<label for="passconf">Password Confirmation</label>
+					<input type="password" name="users[password_confirmation]" class="form-control" id="passconf">
+					<button class="btn btn-success form-control">Sign Up</button>
+				</form>
+			</div>
+		</div>	
+	</div>
+	<div class="col-xs-6">
+		<div class="panel panel-success">
+			<div class="panel-heading">
+				<h3 class="panel-title">Login</h3>
+			</div>
+			<div class="panel-body">
+				<form action="/sessions" method="post">
+					<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+					<label for="email">Email</label>
+					<input type="email" name="sessions[email]" class="form-control" id="email">
+					<label for="password">Password</label>
+					<input type="password" name="sessions[password]" class="form-control" id="password">
+					<button class="btn btn-success form-control">Log In</button>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
